@@ -74,6 +74,11 @@ function Home() {
     console.log("user updated successfully")
   }
 
+  const handelDelete = async()=>{
+    const result = await db.delete(userDate).where(eq(userDate.id, 3)) 
+    console.log("User delete", result)
+  }
+
   return (
     <div className="h-full w-full flex flex-col justify-center items-center mt-40 ">
       {/* <TabsDemo/> */}
@@ -94,6 +99,8 @@ function Home() {
           Aggregate User Details
         </Button>
         <Button onClick={handelUpdate}>Update User</Button>
+        <Button onClick={handelDelete}>Delete User</Button>
+
       </div>
     </div>
   );
